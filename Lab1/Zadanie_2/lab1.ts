@@ -1,4 +1,5 @@
 interface Person {
+    // TODO: dodać pola: imię (string), nazwisko (string), wiek (number) oraz rola (string)
     name: string;
     surname: string;
     age: number;
@@ -17,28 +18,30 @@ interface Person {
     ]
     
     function logPerson(person: Person) {
-        console.log(`${person.name} ${person.surname}, ${person.age}, ${person.role}`);
+    // TODO: dodać wypisywanie na konsoli danych osoby: "imię nazwisko, wiek, rola"
+    console.log(person.name, person.surname, person.age, person.role);
     }
     
     function filterPersons(persons: Person[], criteria: any): Person[] {
-        // TODO: zaimplementować funkcję, która przefiltruje tablicę persons za pomocą predykatu criteria
+        let result = persons.filter((p) =>{
+            let objKey = Object.keys(criteria) as (keyof Person)[];
+            return objKey.every((e) =>{
+                return p[e] === criteria[e];
+            });
+        });
+        return result;
     }
     
     // TODO:
     // 1. Przy pomocy funkcji logPerson wypisać osoby z tablicy users i admins (patrz foreach)
-    admins.forEach(element => {
-        console.log(element);
-    });
-    users.forEach(element => {
-        console.log(element);
-    });
+    console.log(users.forEach(logPerson));
+    console.log(admins.forEach(logPerson));
     // 2. Złączyć tablice users i admins i wypisać zawartość złączonej tablicy na konsoli (patrz operator spread)
-    const everyone: Person[] = [...admins, ...users];
-    console.log(everyone);
+    const newArray = [...users, ...admins];
+    console.log(newArray);
     // 3. Wypisać osoby powyżej 25 lat (patrz operator filter)
-    function ageIsGreater(){
-        return  > 25;
-    }
-    console.log(everyone.filter(ageIsGreater))
+    const olderThan25 = newArray.filter((o) => o.age>25);
+    console.log(olderThan25.forEach(logPerson));
     // 4. Wypisać osoby o imieniu Adam (zaimplementować funkcję filterPersons) -> const filtered = filterPersons(persons, { name: 'Adam' });
-     
+    const adamArray = filterPersons(newArray, { name: 'Adam' });
+    console.log(adamArray)
