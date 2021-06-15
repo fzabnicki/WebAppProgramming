@@ -1,0 +1,13 @@
+.container{
+    left: 200px;
+}
+.cell{
+    background-color: lightgray;
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
+    text-align: center;
+}
+.cell:hover{
+    background-color: grey;
+}
