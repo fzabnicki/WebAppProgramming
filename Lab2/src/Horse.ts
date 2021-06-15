@@ -1,7 +1,6 @@
 import  {Animal} from "./Animal"
-export {Horse};
 
-class Horse extends Animal {
+export class Horse extends Animal {
     constructor(name: string) {
       super(name);
     }

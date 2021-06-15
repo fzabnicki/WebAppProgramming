@@ -1,6 +1,4 @@
-export {Animal};
-
-class Animal {
+export class Animal {
     name: string;
     constructor(theName: string) {
       this.name = theName;
