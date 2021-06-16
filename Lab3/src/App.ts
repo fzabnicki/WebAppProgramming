@@ -9,6 +9,4 @@ let playground;
 start?.addEventListener('click', ()=>{
     tab.innerHTML = '';
     playground = new Board(parseInt(size.value));
-    console.log(playground);
-    console.log("asdasd")
 })
