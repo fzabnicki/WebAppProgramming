@@ -1,0 +1,14 @@
+:root{
+    --body-color: white;
+    --body-backgroundcolor: gray;
+    --games-backgroundcolor: #383838;
+    --text-color: white;
+    --tictac-color: black;
+}
+[data-theme='light']{
+    --body-color: black;
+    --body-backgroundcolor: rgb(231, 231, 231);
+    --games-backgroundcolor: #b8b8b8;
+    --text-color: black;
+    --tictac-color: white;
+}

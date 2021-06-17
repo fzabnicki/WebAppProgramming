@@ -17,6 +17,12 @@ class App {
         const gameContainer = <HTMLDivElement>(document.createElement('div'));  // kontener główny ekranu z grą
         gameContainer.classList.add('singleGame');
         const list = document.createElement('ul');                              // lista pozycji w menu dostępnych gier
+        const toogleDiv = <HTMLDivElement>(document.createElement('div'));
+        toogleDiv.classList.add('toogle-container');
+        const toogleInput = <HTMLInputElement>(document.createElement('input'));
+        toogleInput.id = "checkbox";
+        toogleInput.name = "theme";
+        toogleInput.type = "checkbox";
 
         for (const gameKind of Object.keys(Games)) {
             if(isNaN(Number(gameKind))){
@@ -33,11 +39,27 @@ class App {
             list.appendChild(item);
         }
         menuContainer.appendChild(list);
+        mainDiv.appendChild(toogleDiv);
+        mainDiv.appendChild(toogleInput);
         mainDiv.appendChild(menuContainer);
         mainDiv.appendChild(gameContainer);
         document.body.appendChild(mainDiv);
+        
+        if(toogleInput.checked){
+            if(document.body.hasAttribute('data-theme'))
+                document.body.removeAttribute('data-theme');
+            else
+                document.body.setAttribute('data-theme', 'light')
+        }
+        toogleInput.addEventListener('click', () =>{
+            if(document.body.hasAttribute('data-theme'))
+                document.body.removeAttribute('data-theme');
+            else
+                document.body.setAttribute('data-theme', 'light')
+        })
     }
 }
+
 
 let factory = new Factory();
 new App(factory);

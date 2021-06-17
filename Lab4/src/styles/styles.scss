@@ -1,36 +1,23 @@
-$body-color: white;
-$body-backgroundcolor: gray;
-$games-backgroundcolor: lightgray;
+@import "./tictactoe";
+@import "./variables";
+@import "./mixes";
+
 body{
-  background-color: $body-backgroundcolor;
+  background-color: var(--body-backgroundcolor);
+  color: var(--text-color);
 }
 .main{
-  color: $body-color;
-  background-color: $body-backgroundcolor;
+  background-color: var(--body-backgroundcolor);
 }
 .singleGame{
-  background-color: $games-backgroundcolor;
-  color: black;
+  background-color: var(--games-backgroundcolor);
   width: 550px;
   text-align: center;
 }
-.cell{
-  background-color: white;
-  width: 150px;
-  height: 150px;
-  font-size: 80px;
-  text-align: center;
-}
-.cell:hover{
-  background-color: grey;
-}
 .pick{
   width: 110px;
-}
-.pick:hover{
-  cursor: pointer;
-  color: lightgray;
-}
-#tictactoe{
-  margin-left: 45px;
+  &:hover{
+    cursor: pointer;
+    color: var(--games-backgroundcolor);
+  }
 }

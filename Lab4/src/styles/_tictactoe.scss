@@ -1,0 +1,17 @@
+@import "./variables";
+@import "./mixes";
+
+.cell{
+    @include CellTextStyle();
+    background-color: var(--body-color);
+    color: var(--tictac-color);
+    width: 150px;
+    height: 150px;
+    &:hover{
+      background-color: var(--body-backgroundcolor);
+    }
+  }
+  
+#tictactoe{
+    margin-left: 45px;
+  }
